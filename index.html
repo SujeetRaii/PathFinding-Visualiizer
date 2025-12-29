@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pathfinding Visualizer</title>
+  <link rel="icon" type="image/png" href="Darks.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- DARK MODE DEFAULT -->
+<body class="dark">
+
+  <h2>Pathfinding Visualizer</h2>
+
+  <div class="controls">
+    <select id="algoSelect">
+      <option value="bfs">BFS</option>
+      <option value="dfs">DFS</option>
+      <option value="dijkstra">Dijkstra</option>
+      <option value="astar">A*</option>
+    </select>
+
+    <button onclick="runSelectedAlgo()">Run</button>
+    <button onclick="setMode('wall')">Wall</button>
+    <button onclick="setMode('weight')">Weight</button>
+    <button onclick="clearGrid()">Clear</button>
+    <button onclick="toggleTheme()">Toggle Theme</button>
+  </div>
+
+  <div class="info">
+    <span>Visited: <b id="visitedCount">0</b></span>
+    &nbsp; | &nbsp;
+    <span>Time: <b id="timeTaken">0</b> ms</span>
+  </div>
+
+  <div class="legend">
+    <span><div class="box start"></div>Start</span>
+    <span><div class="box end"></div>End</span>
+    <span><div class="box wall"></div>Wall</span>
+    <span><div class="box weight"></div>Weight</span>
+    <span><div class="box visited"></div>Visited</span>
+    <span><div class="box path"></div>Path</span>
+  </div>
+
+  <div id="grid"></div>
+
+  <div class="explain">
+  <h3>How it works</h3>
+<ul>
+  <li>Select an algorithm from the dropdown.</li>
+  <li>Draw walls or weighted nodes on the grid.</li>
+  <li>Click <b>Run</b> to start the visualization.</li>
+  <li><span style="color:#e17055;"><strong>During execution</strong></span>, all controls are disabled to avoid interference.</li>
+  <li>The algorithm explores nodes step by step.</li>
+  <li>The final highlighted path represents the result.</li>
+</ul>
+
+
+  <h3>What this tells us</h3>
+<ul>
+  <li>Different algorithms explore the grid in different ways.</li>
+  <li>BFS finds the shortest path in unweighted grids.</li>
+  <li>Dijkstra and A* correctly handle weighted nodes.</li>
+  <li>A* usually explores fewer nodes due to heuristic guidance.</li>
+  <li>DFS may find a path, but not necessarily the shortest one.</li>
+  <li>Visualization helps compare efficiency using visited nodes and time.</li>
+</ul>
+
+</div>
+
+
+  <script src="main.js"></script>
+</body>
+</html>
